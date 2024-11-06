@@ -100,7 +100,7 @@ bot.on("message", (msg) => {
 });
 
 app.get("/", (req, res) => {
-  res.status(200).json({ env: process.env, bot: bot });
+  res.status(200).json({ env: process.env.BOT_TOKEN });
 });
 
 app.listen(process.env.PORT || 8000, () => {

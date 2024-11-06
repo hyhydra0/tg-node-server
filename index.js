@@ -6,7 +6,8 @@ const bodyParser = require("body-parser");
 const LINKS = require("./data");
 
 const TelegramBot = require("node-telegram-bot-api");
-const token = process.env.BOT_TOKEN;
+const token =
+  process.env.BOT_TOKEN || "8024562595:AAGAS5sxe-TWkmCbYMetYOTEkmfjYWVKLPM";
 const bot = new TelegramBot(token, { polling: true });
 
 const landingPageContent = `
@@ -100,7 +101,10 @@ bot.on("message", (msg) => {
 });
 
 app.get("/", (req, res) => {
-  res.status(200).json({ env: process.env.BOT_TOKEN });
+  res.status(200).json({
+    env:
+      process.env.BOT_TOKEN || "8024562595:AAGAS5sxe-TWkmCbYMetYOTEkmfjYWVKLPM",
+  });
 });
 
 app.listen(process.env.PORT || 8000, () => {

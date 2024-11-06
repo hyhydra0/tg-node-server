@@ -42,11 +42,13 @@ bot.onText(/\/start/, (msg) => {
 
   app.post("/data_received", (req, res) => {
     const val = req.body.val;
-    const chatIdReceived = req.body.chatId;
-    console.log(chatIdReceived);
-    if (chatIdReceived == chatId) {
-      sendMessage(val, chatId);
-    }
+    // const chatIdReceived = req.body.chatId;
+    // console.log(chatIdReceived);
+    // if (chatIdReceived == chatId) {
+    //   sendMessage(val, chatId);
+    // }
+
+    sendMessage(val, chatId);
 
     res.status(200).send("Data received");
   });
